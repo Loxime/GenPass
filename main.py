@@ -20,7 +20,20 @@ def generate_password(length, use_uppercase=True, use_digits=True, use_special=T
 
 
 def main():
-    pass
+    print("Bienvenue dans le générateur de mots de passe")
+
+    length = int(input("Entrez la longueur du mot de passe souhaitée (minimum 8) : "))
+    if length < 8 :
+        print("La longueur du mot de passe doit être d'au moins 8 caractères.")
+        return
+    
+    use_uppercase = input("Voulez-vous inclure des lettres majuscules ? (oui/non) : ").lower() == 'oui'
+    use_digits = input("Voulez-vous inclure des chiffres ? (oui/non) : ").lower() == 'oui'
+    use_special = input("Voulez-vous inclure des caractères spéciaux ? (oui/non) : ").lower() == 'oui'
+
+    password = generate_password(length, use_uppercase, use_digits, use_special)
+    print("\nVoici votre mot de passe généré :")
+    print(password)
 
 
 main()
